@@ -30,6 +30,7 @@ NeoHunter is a flexible software to systematically detect and prioritize neoanti
         bash data_download.sh
 
 |Database|Description|
+| ------ | --------|
 |reference gene fasta file||
 |1000 human genome dataset|a catalogue of common human genetic variation from The 1000 Genomes Project|
 |dbSNP database|a variation database at the National Center for Biotechnology Information (NCBI)|
