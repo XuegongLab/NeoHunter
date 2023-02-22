@@ -23,7 +23,6 @@ mixcr_path: /data8t_5/zzt/neoHunter/software/mixcr.jar
 optitype_path: /home/zzt/anaconda3/envs/Optitype_env/bin/OptiTypePipeline.py
 perl_path: /home/zzt/anaconda3/envs/zzt/bin/perl
 picard_path: /data8t_5/zzt/neoHunter/software/picard.jar
-pmtnet_path: software/pMTnet
 samtools_path: /usr/local/bin/samtools
 snpeff_path: /data8t_5/zzt/neoHunter/software/snpEff/snpEff.jar
 star_fusion_path: /home/zzt/software/STAR-Fusion-v1.11.0/STAR-Fusion

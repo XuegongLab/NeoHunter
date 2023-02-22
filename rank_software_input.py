@@ -108,31 +108,5 @@ if (rank_software_type == "ERGO"):
         write.writerow(fields)
         write.writerows(rows)
 
-elif (rank_software_type == "pMTnet") :
-
-
-    reader_b = csv.reader(open(TRB_file), delimiter="\t")
-    next(reader_b, None)
-    for line in reader_b:
-        CDR3_b = line[32]
-        CDR3_b_list.append(CDR3_b)
-
-    fields = ['CDR3', 'Antigen', 'HLA']
-    rows = []
-    for cdr in CDR3_b_list:
-        r = [cdr]
-        for i in range(0,len(neoantigen_list),1):
-            r.append(neoantigen_list[i])
-            r.append(hla_list[i].strip().split("-")[1])
-            rows.append(r)
-            r = [cdr]
-
-    # print(rows)
-
-    with open(output_folder+"/"+prefix+"_cdr_pmtnet.csv","w") as f:
-        write = csv.writer(f)
-        write.writerow(fields)
-        write.writerows(rows)
-
 else:
-    print("[WARNING] No output because of invalid software name. (ERGO/pMTnet)")
+    print("[WARNING] No output because of invalid software name. (ERGO)")

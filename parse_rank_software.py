@@ -79,25 +79,8 @@ if rank_software_type == "ERGO":
         if len(tcr_max_score)!=0:
             neoantigen_list[neo][8] = tcr_max_score[neo][2]
         final_rank.append(neoantigen_list[neo])
-elif rank_software_type == "pMTnet":
-    for line in reader:
-        neoantigen = line[1]
-        break
-    for line in reader:
-        if (line[1] == neoantigen) & (float(line[3])>float(max_score)):
-            max_score = float(line[3])
-        elif line[1]!=neoantigen:
-            tcr_max_score.append(["HLA-"+line[2],neoantigen,max_score])
-            neoantigen = line[1]
-            max_score = float(line[3])
-        else:
-            continue
-    for neo in range(0,len(neoantigen_list),1):
-        if len(tcr_max_score)!=0:
-            neoantigen_list[neo][8] = tcr_max_score[neo][2]
-        final_rank.append(neoantigen_list[neo])
 else:
-    print("[WARNING] No output because of invalid software name. (ERGO/pMTnet)")
+    print("[WARNING] No output because of invalid software name. (ERGO)")
 fields.append("TCRSpecificityScore")
 data=pd.DataFrame(final_rank)
 data.columns=fields

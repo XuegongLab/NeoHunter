@@ -321,7 +321,7 @@ def mutation_netmhc_parallel(prefix, netmhc_path, input_folder, output_folder, h
     os.system("rm -rf "+output_folder+"/tmp_netmhc_wt")
 
 
-def tcr_specificity(prefix, rna_fastq_1, rna_fastq_2, neoantigen_input, mixcr_path, ergo_path, pmtnet_path, tcr_specificity_software, output_folder, log_folder):
+def tcr_specificity(prefix, rna_fastq_1, rna_fastq_2, neoantigen_input, mixcr_path, ergo_path, tcr_specificity_software, output_folder, log_folder):
     start_t = time.time()
     mixcr_output_path = os.path.join(output_folder, prefix+"_mixcr_output")
     mixcr_output_file = os.path.join(mixcr_output_path, prefix)
@@ -345,11 +345,6 @@ def tcr_specificity(prefix, rna_fastq_1, rna_fastq_2, neoantigen_input, mixcr_pa
         cmd_ergo = "python "+ergo_path+" mcpas "+output_folder+"/"+prefix+"_cdr_ergo.csv "+output_folder+"/"+prefix+"_tcr_specificity_score.csv"
         logging.info(cmd_ergo)
         subprocess.call(cmd_ergo, shell=True, executable="/bin/bash")     
-    elif tcr_specificity_software == "pMTnet":
-        cmd_pmtnet = "python "+pmtnet_path+"/pMTnet.py -input "+output_folder+"/"+prefix+"_cdr_pmtnet.csv -library "+pmtnet_path+"/library \
-                    -output "+output_folder+" -output_log "+log_folder+"pmtnet_output.log -prefix "+prefix
-        logging.info(cmd_pmtnet)
-        subprocess.call(cmd_pmtnet, shell=True, executable="/bin/bash")  
     else:
         logging.error("There is no indicated neoantigen rank software!")
     cmd_final_output = "python parse_rank_software.py -i "+output_folder+"/"+prefix+"_tcr_specificity_score.csv -n "+neoantigen_input+" -o "+output_folder+" \
@@ -677,7 +672,6 @@ def main(args_input = sys.argv[1:]):
     optitype_path = config_list["optitype_path"]
     perl_path = config_list["perl_path"]
     picard_path = config_list["picard_path"]
-    pmtnet_path = config_list["pmtnet_path"]
     samtools_path = config_list["samtools_path"]
     snpeff_path = config_list["snpeff_path"]
     star_fusion_path = config_list["star_fusion_path"]
@@ -922,7 +916,7 @@ def main(args_input = sys.argv[1:]):
         time11 = time.time()
         output_time("Time Takes for Agretopicity&Foreignness Feature Evaluation & Binding-affinity-related Prioritization is "+str(round(time11-time10,2))+" s",prioritization_folder)
     if prioritization_strategy=="direct" or prioritization_strategy=="both":
-        tcr_specificity(prefix, rna_fastq_path_1, rna_fastq_path_2, pmhc_binding_prediction_folder+"/"+prefix+"_candidate_pmhc.csv", mixcr_path, ergo_path, pmtnet_path, tcr_specificity_software, prioritization_folder, log_folder)
+        tcr_specificity(prefix, rna_fastq_path_1, rna_fastq_path_2, pmhc_binding_prediction_folder+"/"+prefix+"_candidate_pmhc.csv", mixcr_path, ergo_path, tcr_specificity_software, prioritization_folder, log_folder)
     
     time10 = time.time()
     cpu_time_end = psutil.cpu_times()
