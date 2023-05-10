@@ -1,0 +1,53 @@
+# Presentation and recognition features thresholds
+# binding_affinity: None
+# binding_stability: None
+# tumor_abundance: None
+# agretopicity: None
+# foreignness: None
+# tumor_depth: None
+# tumor_vaf: None
+# normal_vaf: None
+
+# Annotation software: VEP/SnpEff/Funcotator, default is VEP
+annotation_software: VEP 
+# Neoantigen rank software: ERGO/pMTnet, default is ERGO
+tcr_specificity_software: ERGO
+asneo_path: software/ASNEO
+bwa_path: /data8t_5/zzt/neoHunter/software/bwa
+ergo_path: software/ERGO-II/Predict.py
+gatk_path: /data8t_2/zzt/data/variant_call/gatk-4.2.6.1/gatk-package-4.2.6.1-local.jar 
+kallisto_path: /data8t_5/zzt/neoHunter/software/kallisto
+netmhc_path: /data8t_5/zzt/neoHunter/software/netMHCpan
+netMHCstabpan_path: /data8t_5/zzt/neoHunter/software/netMHCstabpan
+mixcr_path: /data8t_5/zzt/neoHunter/software/mixcr.jar
+optitype_path: /home/zzt/anaconda3/envs/Optitype_env/bin/OptiTypePipeline.py
+perl_path: /home/zzt/anaconda3/envs/zzt/bin/perl
+picard_path: /data8t_5/zzt/neoHunter/software/picard.jar
+samtools_path: /usr/local/bin/samtools
+snpeff_path: /data8t_5/zzt/neoHunter/software/snpEff/snpEff.jar
+star_fusion_path: /home/zzt/software/STAR-Fusion-v1.11.0/STAR-Fusion
+star_path: /home/zzt/software/STAR-2.7.8a/bin/Linux_x86_64/STAR
+vep_path: /home/zzt/anaconda3/envs/zzt/bin/vep
+vep_cache: /data8t_2/zzt/data/variant_call/neo_pipeline/database
+
+
+mills_path: None
+# default: "./database/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf.gz"
+dbsnp_path: None
+# default: "./database/dbsnp_138.hg19.vcf.gz"
+OneKG_path: None
+# default: "./database/1000G_phase1.indels.hg19.sites.vcf.gz"
+human_peptide_path: None
+# default: "./database/Homo_sapiens.GRCh37.pep.all.fa"
+kallisto_cdna_path: None
+# default: "./database/Homo_sapiens.GRCh37.cdna.all.fa"
+funcotator_source_path: None
+# default: "./database/funcotator_dataSources.v1.6.20190124g"
+star_fusion_dataset_path: None
+# default: "./database/GRCh37_gencode_v19_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/"
+iedb_path: None
+# default: "./database/iedb.fasta"
+reference: None
+# default: "./database/hg19.fa"
+refseq_ann: None
+# default: "./database/hg19.refGene.gtf.gz"
